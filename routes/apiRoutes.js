@@ -1,8 +1,7 @@
 //Dependencies
-const router = express.Router();
-const dbNotes = require('../db/db.json');
-const uuid = require('uuid');
-
+const router = require('express').Router();
+const dbNotes = require('../db/db');
+const { v4: uuidv4 } = require('uuid');
 
 //Grab the json data
 router.get('/notes', (req, res) => {
@@ -16,9 +15,9 @@ router.get('/notes', (req, res) => {
 //Edit json data with new note
 router.post('/notes', async (req, res) => {
     let newNote = {
-        id: uuidv4(),
         title: req.body.title,
         text: req.body.text,
+        id: uuidv4(),
     }
     try {
         dbNotes.push(newNote);
