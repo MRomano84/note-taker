@@ -1,5 +1,4 @@
-const { createHash } = require('crypto');
-const express = require('express');
+//Dependencies
 const path = require('path');
 const router = express.Router();
 
