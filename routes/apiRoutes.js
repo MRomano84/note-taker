@@ -27,7 +27,7 @@ router.post('/notes', async (req, res) => {
     }
 });
 
-//Delete note
+//Delete note by splicing id out of the array
 router.delete('/notes/:id', (req, res) => {
     let noteIndex = dbNotes.findIndex( elem => {
         return elem.id == req.params.id

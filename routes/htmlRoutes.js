@@ -3,6 +3,7 @@ const router = require('express').Router();
 // const express = require('express');
 const path = require('path');
 
+//Main page - index.html
 router.get("/", (req, res) => {
     try {
         res.sendFile(path.join(__dirname, '../public/index.html'));
@@ -11,6 +12,7 @@ router.get("/", (req, res) => {
     }
 });
 
+//The notes page - notes.html
 router.get("/notes", (req, res) => {
     try { 
         res.sendFile(path.join(__dirname, '../public/notes.html'));
@@ -19,6 +21,7 @@ router.get("/notes", (req, res) => {
     }
 });
 
+//Redirect so anything after '/' that's not '/notes' goes to index.html
 router.get('*', (req, res) => {
     try {
         res.sendFile(path.join(__dirname, '../public/index.html'));
